@@ -4,6 +4,7 @@ import { GoVideo } from "react-icons/go";
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import { avatar1, avatar2, avatar3, avatar4 } from "../../assets";
 import { IoSettingsOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const HeroTwo = () => {
 	const advantages = [
@@ -29,10 +30,21 @@ const HeroTwo = () => {
 		<div className="h-screen w-full">
 			<Navbar />
 			<div>
-				<div className="h-[75vh] flex justify-center items-center relative">
+				<motion.div className="h-[75vh] flex justify-center items-center relative">
 					<h1 className="text-[120px]">OUR ADVANTAGES</h1>
 					{advantages.map((advantage) => (
-						<div className="absolute" key={advantage.advantage}>
+						<motion.div
+							className="absolute"
+							key={advantage.advantage}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true, amount: 0.5 }}
+							transition={{ duration: 0.5 }}
+							variants={{
+								hidden: { opacity: 0, x: -50 },
+								visible: { opacity: 1, x: 0 },
+							}}
+						>
 							<img
 								src={advantage.image}
 								alt="avatar"
@@ -46,19 +58,39 @@ const HeroTwo = () => {
 									{advantage.advantage}
 								</div>
 							</div>
-						</div>
+						</motion.div>
 					))}
-				</div>
+				</motion.div>
 
 				<div className="w-full flex items-center justify-around h-[10vh] overflow-hidden">
-					<div className="flex flex-col items-start">
+					<motion.div
+						className="flex flex-col items-start"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.5 }}
+						transition={{ duration: 0.5 }}
+						variants={{
+							hidden: { opacity: 0, x: -50 },
+							visible: { opacity: 1, x: 0 },
+						}}
+					>
 						<div className="p-1 bg-[#FF9209] rounded-full "></div>
 						<div>
 							<p>Your Smile, Our Passion</p>
 						</div>
-					</div>
+					</motion.div>
 
-					<div className="flex items-center gap-4 cursor-pointer">
+					<motion.div
+						className="flex items-center gap-4 cursor-pointer"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.5 }}
+						transition={{ duration: 0.5 }}
+						variants={{
+							hidden: { opacity: 0, x: -50 },
+							visible: { opacity: 1, x: 0 },
+						}}
+					>
 						<div className="p-8 border border-black rounded-full border-b-none mt-12">
 							<HiArrowDown
 								style={{
@@ -67,9 +99,19 @@ const HeroTwo = () => {
 								}}
 							/>
 						</div>
-					</div>
+					</motion.div>
 
-					<div className="flex items-start flex-col gap-1">
+					<motion.div
+						className="flex items-start flex-col gap-1"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.5 }}
+						transition={{ duration: 0.5 }}
+						variants={{
+							hidden: { opacity: 0, x: -50 },
+							visible: { opacity: 1, x: 0 },
+						}}
+					>
 						<div className="flex items-center gap-6">
 							<button className="p-1 border border-[#FF9209] rounded-md">
 								<GoVideo style={{ color: "#FF9209" }} />
@@ -84,7 +126,7 @@ const HeroTwo = () => {
 						<div>
 							<p>Best Start Up OF 2023</p>
 						</div>
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</div>
